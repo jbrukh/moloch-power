@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Moloch Banzhaf Analysis</title>
+        <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: red;
+            color: white;  
+            max-width: 50em;
+        }
+        table {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid white;
+            text-align: right;
+        }
+        table td, th {
+            padding: 0.10em 1em 0.10em 1em;   
+        }
+        a {
+            color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>MolochDAO Banzhaf Power Index</h1>
+        <p><a href="https://blog.coinfund.io/are-blockchain-voters-dummies-4a89a376de69">Are blockchain voters 'dummies'?</a> by <a href="https://twitter.com/jbrukh">@jbrukh</a>.</p>
+        <p>The Banzhaf power index 
+            is a measure of voting power in a weighted voting system. In the context of <a href="https://molochdao.com">Moloch</a>, 
+            it can be roughly understood as "what percent of the time can a Moloch member swing the vote?".</p>
+        
+        <p>Currently, the total number of Moloch shares is {{total}}. Assuming full turnout, the quota of shares needed to pass a Moloch proposal is {{quota}}.</p>
+       
+        <table>
+            <tr>
+                    <th><b>Address</b></th>
+                    <th><b>Moloch Shares</b></th>
+                    <th><b>Banzhaf Power</b></th>
+            </tr>
+            {% for row in result %}
+            <tr>
+                    <td>{{row[0][0]}}</td>
+                    <td>{{row[0][1]}}</td>
+                    <td>{{row[1]|pct}}%</td>
+            </tr>
+            {% endfor %}
+       </table>
+    </body>
+</html>
