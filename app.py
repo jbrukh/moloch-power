@@ -57,6 +57,7 @@ def hello_world():
     l = moloch()
     weights = [item[1] for item in l]
     banzhaf_index, total, quota = banzhaf(weights)
+    l = [(item[0], item[1], item[1]/float(total)) for item in l]
     result = zip(l, banzhaf_index)
     return render_template('index.html', total=total, quota=quota, result=result)        
 

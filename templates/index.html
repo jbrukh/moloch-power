@@ -6,7 +6,7 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: red;
             color: white;  
-            max-width: 50em;
+            max-width: 55em;
         }
         table {
             font-family: 'Courier New', Courier, monospace;
@@ -33,12 +33,14 @@
             <tr>
                     <th><b>Address</b></th>
                     <th><b>Moloch Shares</b></th>
-                    <th><b>Banzhaf Power</b></th>
+                    <th><b>Ownership Percent</b></th>
+                    <th><b>Banzhaf Power Index</b></th>
             </tr>
             {% for row in result %}
             <tr>
                     <td>{{row[0][0]}}</td>
                     <td>{{row[0][1]}}</td>
+                    <td>{{row[0][2]|pct}}%</td>
                     <td>{{row[1]|pct}}%</td>
             </tr>
             {% endfor %}
